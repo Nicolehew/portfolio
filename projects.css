@@ -57,6 +57,10 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 .rchip b { display:block; font-family:'Playfair Display',serif; font-weight:600; font-size:1.7rem; color:var(--tan-soft); line-height:1; }
 .rchip span { font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; color:rgba(243,235,223,.6); }
 
+.cs-links { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin-top:1.4rem; }
+.cs-links a { font-size:.76rem; font-weight:600; color:var(--brown); text-decoration:none; border-bottom:1px solid var(--tan); padding-bottom:.1rem; transition:color .2s,border-color .2s; }
+.cs-links a:hover { color:var(--espresso); border-color:var(--espresso); }
+
 /* RECENT ROLES */
 .roles-wrap, .design-wrap { max-width:1120px; margin:0 auto; padding:3.5rem 2rem; }
 .section-head { text-align:center; margin-bottom:2.5rem; }
