@@ -107,4 +107,5 @@ footer a { color:var(--tan-soft); text-decoration:none; }
   .cs-gallery.cols-3 figure:last-child { grid-column:1 / -1; max-width:60%; margin:0 auto; }
   .cs-gallery.cols-2 { grid-template-columns:1fr; }
   .ig-embeds { grid-template-columns:1fr; }
+  .cs-overview, .cs-list li, .proj-hero .sub, .ig-card-title { font-size: 0.82rem; line-height: 1.65; }
 }
