@@ -27,7 +27,8 @@
   max-width:160px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.16);
   opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;}
 #mascot-bubble.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
-@media(max-width:700px){#m-img{width:68px;height:68px;}}`;
+@media(max-width:700px){#m-img{width:68px;height:68px;}}
+@media(max-width:480px){#m-img{width:52px;height:52px;}#mascot-bubble{max-width:120px;font-size:.6rem;padding:.35rem .5rem;}}`;
 
   // Sections to track (in order) with the pose + greeting for each.
   const PLAN = [
