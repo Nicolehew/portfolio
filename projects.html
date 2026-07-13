@@ -6,7 +6,7 @@
   <title>Projects & Case Studies — Nicole Hew</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="projects.css?v=4" />
+  <link rel="stylesheet" href="projects.css?v=5" />
 </head>
 <body>
 
@@ -210,23 +210,23 @@
     <div class="section-head">
       <p class="eyebrow">Beyond Campaigns</p>
       <h3>Design &amp; Creative Work</h3>
-      <p class="section-sub">Ad creatives, brand assets, and print — built to stop the scroll and communicate clearly.</p>
+      <p class="section-sub">Ad creatives &amp; event collateral I designed and wrote copy for — click any image to view full size.</p>
     </div>
     <div class="design-grid">
       <div class="design-card">
-        <div class="design-img"><img src="img/d-artfashion.jpg" alt="Creative ad designs" /></div>
-        <h4>Creative Ads</h4>
-        <p>Social &amp; digital ads tailored for performance — built to stop the scroll and drive results.</p>
+        <div class="design-img"><img src="img/p-chuiling.jpg" alt="Golden Destinations Travel Fair event poster" /></div>
+        <h4>Event &amp; Print Design</h4>
+        <p>Golden Destinations Travel Fair poster — brand ambassadors, destination pricing grid &amp; bilingual copy for a 3-day Ipoh event.</p>
       </div>
       <div class="design-card">
-        <div class="design-img"><img src="img/d-logo.jpg" alt="Logo and decal design" /></div>
-        <h4>Logo &amp; Glass Door Decals</h4>
-        <p>From logo creation to glass door decals — cohesive brand visuals that grab attention online and offline.</p>
+        <div class="design-img"><img src="img/p-fbad2.jpg" alt="Tradveller Quant Trading ad creative" /></div>
+        <h4>Digital Ad Creatives</h4>
+        <p>Tradveller Quant Trading campaign — bold hook-driven visuals designed to stop the scroll and drive registrations.</p>
       </div>
       <div class="design-card">
-        <div class="design-img"><img src="img/d-poster.jpg" alt="Bunting and flyer design" /></div>
-        <h4>Bunting &amp; Flyer Design</h4>
-        <p>Promotional banners and flyers designed to capture attention at events, storefronts, and fairs.</p>
+        <div class="design-img"><img src="img/p-img1.jpeg" alt="Chui Ling public speaking Facebook ad" /></div>
+        <h4>Social Ad Design</h4>
+        <p>Chui Ling Masterclass Facebook ad — creative concept, copy &amp; visual pairing for a public-speaking course launch.</p>
       </div>
     </div>
   </section>
@@ -238,7 +238,23 @@
   <script>
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }}), {threshold: 0.06});
     document.querySelectorAll('.cs, .role-card, .design-card').forEach(c => obs.observe(c));
+
+    // Lightbox — click any project image to expand to full view
+    (function () {
+      const imgs = document.querySelectorAll('.cs-gallery img, .design-img img');
+      if (!imgs.length) return;
+      const lb = document.createElement('div');
+      lb.id = 'lightbox';
+      lb.innerHTML = '<span id="lightbox-close" aria-label="Close">&times;</span><img id="lightbox-img" alt="Expanded view" />';
+      document.body.appendChild(lb);
+      const lbImg = lb.querySelector('#lightbox-img');
+      const open = (src) => { lbImg.src = src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+      const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+      imgs.forEach(im => im.addEventListener('click', () => open(im.currentSrc || im.src)));
+      lb.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
   </script>
-  <script src="mascot.js?v=3"></script>
+  <script src="mascot.js?v=4"></script>
 </body>
 </html>

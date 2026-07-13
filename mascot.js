@@ -38,7 +38,8 @@
     { sel: '#ai',            pose: 'm-present.png', msg: "AI + Canva creative ✨" },
     { sel: '#contact',       pose: 'm-wave.png',    msg: "Let's connect! \u{1F680}" },
     { sel: '.proj-hero',     pose: 'm-present.png', msg: "All my projects! \u{1F389}" },
-    { sel: '.projects-grid', pose: 'm-laptop.png',  msg: "Tap a card to explore \u{1F440}" },
+    { sel: '.projects-grid', pose: 'm-laptop.png',  msg: "Click any image to view full size \u{1F50D}" },
+    { sel: '.design-wrap',   pose: 'm-present.png', msg: "Click to view full size \u{1F5BC}\u{FE0F}" },
   ];
 
   const CLICKS = [
