@@ -5,7 +5,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Scroll reveal
-const revealEls = document.querySelectorAll('.about-copy, .about-media, .services-head, .services-list li, .stat, .wtile, .work-head, .contact h2, .contact-sub, .contact-links');
+const revealEls = document.querySelectorAll('.about-copy, .about-media, .services-head, .services-list li, .stat, .wtile, .work-head, .contact h2, .contact-sub, .contact-links, .role-card');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }

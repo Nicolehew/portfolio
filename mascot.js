@@ -33,13 +33,13 @@
   const PLAN = [
     { sel: '.hero',          pose: 'm-wave.png',    msg: "Hi! I'm Nicole \u{1F44B}" },
     { sel: '#about',         pose: 'm-think.png',   msg: "A bit about me \u{1F4BC}" },
+    { sel: '.roles-wrap',    pose: 'm-laptop.png',  msg: "My career so far \u{1F4BC}" },
     { sel: '#work',          pose: 'm-present.png', msg: "Here's what I do ✨" },
     { sel: '#case',          pose: 'm-laptop.png',  msg: "Real results \u{1F4C8}" },
     { sel: '#ai',            pose: 'm-present.png', msg: "AI + Canva creative ✨" },
     { sel: '#contact',       pose: 'm-wave.png',    msg: "Let's connect! \u{1F680}" },
     { sel: '.proj-hero',     pose: 'm-present.png', msg: "All my projects! \u{1F389}" },
     { sel: '.projects-grid', pose: 'm-laptop.png',  msg: "Click any image to view full size \u{1F50D}" },
-    { sel: '.design-wrap',   pose: 'm-present.png', msg: "Click to view full size \u{1F5BC}\u{FE0F}" },
   ];
 
   const CLICKS = [

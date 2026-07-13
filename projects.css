@@ -57,45 +57,16 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 .rchip b { display:block; font-family:'Playfair Display',serif; font-weight:600; font-size:1.7rem; color:var(--tan-soft); line-height:1; }
 .rchip span { font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; color:rgba(243,235,223,.6); }
 
-.cs-links { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin-top:1.4rem; }
-.cs-links a { font-size:.76rem; font-weight:600; color:var(--brown); text-decoration:none; border-bottom:1px solid var(--tan); padding-bottom:.1rem; transition:color .2s,border-color .2s; }
-.cs-links a:hover { color:var(--espresso); border-color:var(--espresso); }
-
-/* RECENT ROLES */
-.roles-wrap, .design-wrap { max-width:1120px; margin:0 auto; padding:3.5rem 2rem; }
-.section-head { text-align:center; margin-bottom:2.5rem; }
-.section-head h3 { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(2rem,4vw,3rem); color:var(--ink); }
-.section-sub { font-size:.9rem; color:var(--muted); max-width:460px; margin:.5rem auto 0; line-height:1.7; }
-.roles { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-.role-card { background:#fff; border:1px solid var(--line); border-radius:12px; padding:1.75rem;
-  opacity:0; transform:translateY(20px); transition:opacity .5s, transform .5s; }
-.role-card.visible { opacity:1; transform:translateY(0); }
-.role-badge { display:inline-block; font-size:.64rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--tan); margin-bottom:.6rem; }
-.role-card h4 { font-size:1.05rem; margin-bottom:.6rem; color:var(--ink); }
-.role-card p { font-size:.84rem; line-height:1.7; color:var(--muted); margin-bottom:1rem; }
-.role-metrics { display:flex; flex-wrap:wrap; gap:.4rem .9rem; }
-.role-metrics span { font-size:.74rem; color:var(--brown); }
-.role-metrics b { color:var(--ink); }
-
-/* DESIGN */
-.design-wrap { padding-bottom:5rem; }
-.design-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.design-card { background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden;
-  opacity:0; transform:translateY(20px); transition:opacity .5s, transform .5s, box-shadow .25s; }
-.design-card.visible { opacity:1; transform:translateY(0); }
-.design-card:hover { box-shadow:0 16px 40px rgba(36,27,19,.12); }
-.design-img { aspect-ratio:4/3; overflow:hidden; }
-.design-img img { width:100%; height:100%; object-fit:cover; transition:transform .4s; display:block; }
-.design-card:hover .design-img img { transform:scale(1.05); }
-.design-card h4 { font-size:1rem; margin:1.1rem 1.25rem .4rem; color:var(--ink); }
-.design-card p { font-size:.8rem; line-height:1.6; color:var(--muted); margin:0 1.25rem 1.4rem; }
+/* INSTAGRAM PREVIEWS */
+.ig-embeds { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; }
+.ig-embeds .instagram-media { margin:0 !important; width:100% !important; min-width:0 !important; }
 
 /* FOOTER */
 footer { background:var(--espresso); text-align:center; padding:2rem; font-size:.75rem; color:rgba(243,235,223,.4); }
 footer a { color:var(--tan-soft); text-decoration:none; }
 
 /* ── LIGHTBOX ── */
-.cs-gallery img, .design-img img { cursor: zoom-in; }
+.cs-gallery img { cursor: zoom-in; }
 #lightbox {
   position: fixed; inset: 0; z-index: 2000;
   background: rgba(20,15,10,0.93); backdrop-filter: blur(4px);
@@ -118,9 +89,11 @@ footer a { color:var(--tan-soft); text-decoration:none; }
   .cs-detail { grid-template-columns:1fr; gap:1.5rem; }
   .cs-results { flex-direction:row; flex-wrap:wrap; }
   .rchip { flex:1; min-width:120px; }
-  .roles, .design-grid { grid-template-columns:1fr; }
+  .ig-embeds { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:560px) {
   .cs-gallery.cols-3 { grid-template-columns:1fr 1fr; }
   .cs-gallery.cols-3 figure:last-child { grid-column:1 / -1; max-width:60%; margin:0 auto; }
+  .cs-gallery.cols-2 { grid-template-columns:1fr; }
+  .ig-embeds { grid-template-columns:1fr; }
 }
