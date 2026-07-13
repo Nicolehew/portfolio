@@ -59,7 +59,18 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 
 /* INSTAGRAM PREVIEWS */
 .ig-embeds { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; }
-.ig-embeds .instagram-media { margin:0 !important; width:100% !important; min-width:0 !important; }
+.ig-card {
+  position:relative; aspect-ratio:4/5; border-radius:12px; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:1.1rem;
+  text-decoration:none; color:#fff;
+  background: linear-gradient(160deg, #4f5bd5, #962fbf 35%, #d62976 60%, #fa7e1e 80%, #feda75 100%);
+  box-shadow:0 14px 32px rgba(36,27,19,.18); transition:transform .3s, box-shadow .3s;
+}
+.ig-card::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%); }
+.ig-card:hover { transform:translateY(-4px); box-shadow:0 20px 44px rgba(36,27,19,.26); }
+.ig-card-type { position:relative; font-size:.66rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; opacity:.92; margin-bottom:.5rem; }
+.ig-card-title { position:relative; font-size:.86rem; font-weight:600; line-height:1.35; margin-bottom:.9rem; }
+.ig-card-cta { position:relative; font-size:.68rem; font-weight:600; letter-spacing:.03em; opacity:.95; border-top:1px solid rgba(255,255,255,.35); padding-top:.6rem; }
 
 /* FOOTER */
 footer { background:var(--espresso); text-align:center; padding:2rem; font-size:.75rem; color:rgba(243,235,223,.4); }
