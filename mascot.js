@@ -36,6 +36,7 @@
     { sel: '#about',         pose: 'm-think.png?v=3',   msg: "A bit about me \u{1F4BC}" },
     { sel: '.roles-wrap',    pose: 'm-laptop.png?v=3',  msg: "My career so far \u{1F4BC}" },
     { sel: '#work',          pose: 'm-present.png?v=3', msg: "Here's what I do ✨" },
+    { sel: '#tools',         pose: 'm-laptop.png?v=3',  msg: "My tools & platforms \u{1F6E0}\u{FE0F}" },
     { sel: '#case',          pose: 'm-laptop.png?v=3',  msg: "Real results \u{1F4C8}" },
     { sel: '#ai',            pose: 'm-present.png?v=3', msg: "AI + Canva creative ✨" },
     { sel: '#contact',       pose: 'm-wave.png?v=3',    msg: "Let's connect! \u{1F680}" },
