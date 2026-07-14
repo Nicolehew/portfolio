@@ -29,13 +29,23 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.4rem 3.5rem;
-  background: transparent; transition: background 0.4s, padding 0.4s;
+  background: linear-gradient(180deg, rgba(20,15,10,0.55) 0%, rgba(20,15,10,0.15) 80%, rgba(20,15,10,0) 100%);
+  transition: background 0.4s, padding 0.4s;
 }
 nav.scrolled { background: rgba(36,27,19,0.92); backdrop-filter: blur(10px); padding: 1rem 3.5rem; }
-.logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
-nav ul a { text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(243,235,223,0.8); transition: color 0.25s; }
+nav ul a {
+  position: relative; text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(243,235,223,0.9); text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  padding-bottom: 0.35rem; transition: color 0.25s;
+}
+nav ul a::after {
+  content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px;
+  background: var(--tan); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease;
+}
 nav ul a:hover { color: var(--tan-soft); }
+nav ul a:hover::after { transform: scaleX(1); }
 
 /* ── HERO ── */
 .hero {
