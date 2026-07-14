@@ -14,8 +14,8 @@
   animation:m-float 3s ease-in-out infinite;transform-origin:50% 100%;}
 #mascot-char:hover{animation-play-state:paused;}
 #mascot-char.walk{animation:m-walk .9s ease-in-out;}
-#m-img{width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;
-  border:3px solid #fff;box-shadow:0 7px 18px rgba(13,27,46,.28);background:#e9e6e1;}
+#m-img{width:98px;height:203px;border-radius:14px;object-fit:cover;display:block;
+  border:2px solid #fff;box-shadow:0 10px 22px rgba(13,27,46,.3);background:#e9e6e1;}
 @keyframes m-float{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-6px) rotate(1deg);}}
 @keyframes m-walk{0%{transform:translateY(0) rotate(0);}
   20%{transform:translateY(-11px) rotate(-5deg);}50%{transform:translateY(0) rotate(0);}
@@ -27,20 +27,20 @@
   max-width:160px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.16);
   opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;}
 #mascot-bubble.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
-@media(max-width:700px){#m-img{width:68px;height:68px;}}
-@media(max-width:480px){#m-img{width:52px;height:52px;}#mascot-bubble{max-width:120px;font-size:.6rem;padding:.35rem .5rem;}}`;
+@media(max-width:700px){#m-img{width:76px;height:157px;border-radius:11px;}}
+@media(max-width:480px){#m-img{width:60px;height:124px;border-radius:9px;}#mascot-bubble{max-width:120px;font-size:.6rem;padding:.35rem .5rem;}}`;
 
   // Sections to track (in order) with the pose + greeting for each.
   const PLAN = [
-    { sel: '.hero',          pose: 'm-wave.png',    msg: "Hi! I'm Nicole \u{1F44B}" },
-    { sel: '#about',         pose: 'm-think.png',   msg: "A bit about me \u{1F4BC}" },
-    { sel: '.roles-wrap',    pose: 'm-laptop.png',  msg: "My career so far \u{1F4BC}" },
-    { sel: '#work',          pose: 'm-present.png', msg: "Here's what I do ✨" },
-    { sel: '#case',          pose: 'm-laptop.png',  msg: "Real results \u{1F4C8}" },
-    { sel: '#ai',            pose: 'm-present.png', msg: "AI + Canva creative ✨" },
-    { sel: '#contact',       pose: 'm-wave.png',    msg: "Let's connect! \u{1F680}" },
-    { sel: '.proj-hero',     pose: 'm-present.png', msg: "All my projects! \u{1F389}" },
-    { sel: '.projects-grid', pose: 'm-laptop.png',  msg: "Click any image to view full size \u{1F50D}" },
+    { sel: '.hero',          pose: 'm-wave.png?v=2',    msg: "Hi! I'm Nicole \u{1F44B}" },
+    { sel: '#about',         pose: 'm-think.png?v=2',   msg: "A bit about me \u{1F4BC}" },
+    { sel: '.roles-wrap',    pose: 'm-laptop.png?v=2',  msg: "My career so far \u{1F4BC}" },
+    { sel: '#work',          pose: 'm-present.png?v=2', msg: "Here's what I do ✨" },
+    { sel: '#case',          pose: 'm-laptop.png?v=2',  msg: "Real results \u{1F4C8}" },
+    { sel: '#ai',            pose: 'm-present.png?v=2', msg: "AI + Canva creative ✨" },
+    { sel: '#contact',       pose: 'm-wave.png?v=2',    msg: "Let's connect! \u{1F680}" },
+    { sel: '.proj-hero',     pose: 'm-present.png?v=2', msg: "All my projects! \u{1F389}" },
+    { sel: '.projects-grid', pose: 'm-laptop.png?v=2',  msg: "Click any image to view full size \u{1F50D}" },
   ];
 
   const CLICKS = [
@@ -52,7 +52,7 @@
   ];
 
   // Preload all poses so swaps are instant
-  ['m-wave.png', 'm-think.png', 'm-present.png', 'm-laptop.png'].forEach(s => { const i = new Image(); i.src = s; });
+  ['m-wave.png?v=2', 'm-think.png?v=2', 'm-present.png?v=2', 'm-laptop.png?v=2'].forEach(s => { const i = new Image(); i.src = s; });
 
   function inject() {
     const s = document.createElement('style');
@@ -61,7 +61,7 @@
     const wrap = document.createElement('div');
     wrap.id = 'mascot-wrap';
     wrap.innerHTML = `<div id="mascot-bubble"></div>
-      <div id="mascot-char"><img id="m-img" src="m-wave.png" alt="Nicole mascot"/></div>`;
+      <div id="mascot-char"><img id="m-img" src="m-wave.png?v=2" alt="Nicole mascot"/></div>`;
     document.body.appendChild(wrap);
     return wrap;
   }
