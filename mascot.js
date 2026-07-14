@@ -80,12 +80,14 @@
       const W = window.innerWidth || document.documentElement.clientWidth || 1200;
       const H = window.innerHeight || document.documentElement.clientHeight || 800;
       const w = wrap.offsetWidth || 80, h = wrap.offsetHeight || 170;
-      const m = 20, nav = 70;
+      const m = 20;
+      const navEl = document.querySelector('nav');
+      const nav = (navEl && navEl.getBoundingClientRect().height) || 70;
       return [
-        [W - w - m, H - h - m],               // bottom-right
+        [W - w - m, nav + 12],                // top-right (hero — clear of headline/socials)
         [m, H - h - m],                       // bottom-left
-        [W - w - m, nav + 6],                 // top-right
-        [m, Math.max(nav + 6, (H - h) / 2)],  // mid-left
+        [W - w - m, H - h - m],               // bottom-right
+        [m, Math.max(nav + 12, (H - h) / 2)], // mid-left
         [(W - w) / 2, H - h - m],             // bottom-centre
       ];
     }
