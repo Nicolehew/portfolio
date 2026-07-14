@@ -272,9 +272,9 @@ footer span:first-child { font-family: 'Playfair Display', serif; font-style: it
   nav ul a { font-size: 0.68rem; }
   .logo { font-size: 1.15rem; }
   .hero { margin-top: 92px; }
-  .hero-photo { height: 42vh; }
-  .hero-ph { min-height: 42vh; }
-  .hero-text { padding: 3rem 1.75rem 6.5rem; }
+  .hero-photo { height: 58vh; }
+  .hero-ph { min-height: 58vh; }
+  .hero-text { padding: 2.5rem 1.75rem 6.5rem; }
   .about-copy p, .current-intro, .current-list p, .services-sub, .ailab-sub,
   .ailab-post-text, .contact-sub, .role-card p, .section-sub { font-size: 0.82rem; line-height: 1.65; }
   .ailab-post-copy h3 { font-size: 1.25rem; }
