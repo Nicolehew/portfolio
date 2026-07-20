@@ -6,7 +6,7 @@
   <title>Projects & Case Studies — Nicole Hew</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="projects.css?v=10" />
+  <link rel="stylesheet" href="projects.css?v=11" />
 </head>
 <body>
 
@@ -207,27 +207,30 @@
     <!-- COFRETH WEBSITE -->
     <article class="cs" id="cofreth">
       <div class="cs-head">
-        <span class="cs-cat">Web Design &amp; Development · Corporate</span>
+        <span class="cs-cat">Web Design · Vibe Coded</span>
         <h2>Cofreth Malaysia — Full Website Redesign</h2>
         <div class="cs-meta-row">
-          <span><b>Role</b> Designer &amp; Developer (end-to-end)</span>
-          <span><b>Platform</b> Next.js</span>
-          <span><b>Tools</b> Next.js · React · AI-assisted ("vibe coding")</span>
+          <span><b>Role</b> Designer &amp; Builder (solo, end-to-end)</span>
+          <span><b>Method</b> Vibe Coding — designed &amp; prompted the entire build myself with AI</span>
         </div>
       </div>
-      <div class="cs-gallery cols-2">
-        <figure><img src="img/cofreth-old.jpg" alt="Old Cofreth website — outdated Bootstrap template design" /><figcaption>Before — old template site</figcaption></figure>
-        <figure><img src="img/cofreth-new.jpg" alt="New Cofreth website — modern redesign I built" /><figcaption>After — my redesign, live now</figcaption></figure>
+      <div class="ba-slider" id="cofrethSlider">
+        <img class="ba-img ba-after" src="img/cofreth-new.jpg" alt="New Cofreth website I designed and vibe-coded" />
+        <img class="ba-img ba-before" src="img/cofreth-old.jpg" alt="Old Cofreth website before my redesign" />
+        <div class="ba-handle"><span>↔</span></div>
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After — vibe coded by me</span>
       </div>
+      <p class="ba-hint">Drag the slider to compare →</p>
       <div class="cs-detail">
         <div class="cs-detail-main">
-          <p class="cs-overview">Designed and built the entire new corporate website for Cofreth (M) Sdn Bhd — a 38-year-old facilities management &amp; energy solutions provider — end-to-end, replacing an outdated, generic Bootstrap-template site with a fast, modern, custom-built experience on Next.js.</p>
+          <p class="cs-overview">Designed and vibe-coded the entire new corporate website for Cofreth (M) Sdn Bhd — a 38-year-old facilities management &amp; energy solutions provider — solo, end-to-end, with no dev team. Every screen went from idea → prompt → design → shipped, live site.</p>
           <p class="cs-sub">Key Contributions</p>
           <ul class="cs-list">
             <li>Redesigned the full visual identity — layout, typography, colour system and imagery direction — from scratch.</li>
-            <li>Vibe-coded the entire build solo with AI tools — no dev team — going from design concept to a fully working, deployed site.</li>
+            <li>Vibe-coded the entire build myself with AI, directing every section from concept to a fully working, deployed website.</li>
             <li>Restructured navigation and content (Facilities Management, Energy Services, Green Expertise, Smart Technology) for clearer service discovery.</li>
-            <li>Prompted, reviewed and refined every section myself to make sure the AI-assisted build matched the intended design and brand voice.</li>
+            <li>Prompted, reviewed and refined every section personally so the AI-assisted build matched the intended design and brand voice.</li>
           </ul>
         </div>
         <aside class="cs-detail-side">
@@ -235,7 +238,7 @@
           <div class="cs-results">
             <div class="rchip"><b>1</b><span>Full site redesign, solo</span></div>
             <div class="rchip"><b>38 yrs</b><span>Brand modernised for the first time</span></div>
-            <div class="rchip"><b>Next.js</b><span>Migrated off legacy template</span></div>
+            <div class="rchip"><b>0</b><span>Developers hired — 100% vibe coded</span></div>
           </div>
         </aside>
       </div>
@@ -253,6 +256,51 @@
   <script>
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }}), {threshold: 0.06});
     document.querySelectorAll('.cs').forEach(c => obs.observe(c));
+
+    // Before/after slider — draggable, with an auto-sweep demo on first view
+    (function () {
+      const slider = document.getElementById('cofrethSlider');
+      if (!slider) return;
+      const before = slider.querySelector('.ba-before');
+      const handle = slider.querySelector('.ba-handle');
+
+      function setPos(pct) {
+        pct = Math.max(0, Math.min(100, pct));
+        before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left = pct + '%';
+      }
+      function posFromEvent(e) {
+        const rect = slider.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        return (x / rect.width) * 100;
+      }
+      let dragging = false;
+      slider.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        slider.classList.remove('animating');
+        setPos(posFromEvent(e));
+      });
+      window.addEventListener('pointermove', (e) => { if (dragging) setPos(posFromEvent(e)); });
+      window.addEventListener('pointerup', () => { dragging = false; });
+
+      // Auto-sweep demo once the slider scrolls into view
+      let played = false;
+      const sliderObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !played) {
+            played = true;
+            slider.classList.add('animating');
+            setPos(50);
+            setTimeout(() => setPos(78), 500);
+            setTimeout(() => setPos(28), 1900);
+            setTimeout(() => setPos(50), 3300);
+            setTimeout(() => slider.classList.remove('animating'), 5000);
+            sliderObs.unobserve(slider);
+          }
+        });
+      }, { threshold: 0.4 });
+      sliderObs.observe(slider);
+    })();
 
     // Lightbox — click any project image to expand to full view
     (function () {
