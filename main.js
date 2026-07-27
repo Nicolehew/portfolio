@@ -31,3 +31,45 @@ revealEls.forEach(el => { el.classList.add('reveal'); obs.observe(el); });
   lb.addEventListener('click', close);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 })();
+
+// Logo marquees — clone each track's items until it's wide enough for a
+// seamless loop at any viewport width, instead of guessing a fixed copy count.
+(function () {
+  const tracks = document.querySelectorAll('[data-marquee]');
+  if (!tracks.length) return;
+  const PX_PER_SEC = 34;
+
+  function ensureCoverage(track) {
+    const container = track.parentElement;
+    const originals = track._marqueeOriginals || (track._marqueeOriginals = [...track.children]);
+    if (!originals.length) return;
+    const setWidth = track._marqueeSetWidth || (track._marqueeSetWidth = (() => {
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
+      return originals.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0) + gap * originals.length;
+    })());
+    if (!setWidth) return;
+
+    const needed = container.clientWidth * 2 + setWidth;
+    let current = track.children.length / originals.length * setWidth;
+    while (current < needed) {
+      originals.forEach(el => {
+        const clone = el.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+      current += setWidth;
+    }
+    track.style.setProperty('--set-width', setWidth + 'px');
+    track.style.setProperty('--marquee-duration', (setWidth / PX_PER_SEC) + 's');
+  }
+
+  function buildAll() { tracks.forEach(ensureCoverage); }
+  window.addEventListener('load', buildAll);
+  if (document.readyState === 'complete') buildAll();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildAll, 250);
+  });
+})();

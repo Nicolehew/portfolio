@@ -150,11 +150,12 @@ nav ul a:hover::after { transform: scaleX(1); }
 }
 .marquee-track {
   display: flex; gap: 1.1rem; width: max-content;
-  animation: marquee-scroll 26s linear infinite;
+  animation: marquee-scroll linear infinite;
+  animation-duration: var(--marquee-duration, 26s);
 }
-.marquee-track.reverse { animation-direction: reverse; animation-duration: 32s; }
+.marquee-track.reverse { animation-direction: reverse; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
-@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-1 * var(--set-width, 50%))); } }
 
 .logo-card {
   display: flex; align-items: center; gap: 0.7rem; background: #fff; flex-shrink: 0;
