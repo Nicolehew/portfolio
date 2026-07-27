@@ -39,9 +39,11 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 .cs-gallery { display:grid; gap:1.1rem; margin-bottom:2rem; }
 .cs-gallery.cols-3 { grid-template-columns:repeat(3,1fr); }
 .cs-gallery.cols-2 { grid-template-columns:repeat(2,1fr); max-width:640px; }
+.cs-gallery.single { grid-template-columns:1fr; max-width:900px; margin-left:auto; margin-right:auto; }
 .cs-gallery figure { margin:0; }
 .cs-gallery img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; box-shadow:0 14px 34px rgba(36,27,19,.14); display:block; transition:transform .3s ease; }
 .cs-gallery.cols-2 img { aspect-ratio:4/5; }
+.cs-gallery.single img { aspect-ratio:1400/1078; object-fit:contain; background:#f4efe6; }
 .cs-gallery figure:hover img { transform:translateY(-4px); box-shadow:0 20px 44px rgba(36,27,19,.2); }
 .cs-gallery figcaption { font-size:.7rem; color:var(--muted); text-align:center; margin-top:.6rem; letter-spacing:.02em; }
 
