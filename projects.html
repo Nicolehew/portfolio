@@ -6,7 +6,7 @@
   <title>Projects & Case Studies — Nicole Hew</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="projects.css?v=16" />
+  <link rel="stylesheet" href="projects.css?v=17" />
 </head>
 <body>
 
@@ -76,6 +76,54 @@
           <tr><th scope="row">Wong Chui Ling Masterclass</th><td>RM13.00</td></tr>
           <tr><th scope="row">Golden Destination Travel Fairs</th><td>RM3.00</td></tr>
           <tr><th scope="row">Zenland Wellness</th><td>RM1.68</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-head" style="margin-top:3rem;">
+      <h3 style="font-size:clamp(1.5rem,3vw,2.1rem);">Cost Per Acquisition — Sunway Fintech (Current)</h3>
+      <p class="section-sub">Ongoing paid-conversion results for Credit Bureau Malaysia's report products. A different metric from cost-per-lead above — CPA measures a completed purchase, not just a sign-up.</p>
+    </div>
+
+    <div class="chart-card">
+      <svg class="cpa-chart" viewBox="0 0 700 160" role="img" aria-labelledby="cpaTitle cpaDesc">
+        <title id="cpaTitle">Cost per acquisition by product, in Malaysian ringgit</title>
+        <desc id="cpaDesc">MyScore Report: typically below RM20. Credit Pro: RM30.</desc>
+
+        <!-- gridlines -->
+        <line x1="180" y1="10" x2="180" y2="116" class="grid-line" />
+        <line x1="317.14" y1="10" x2="317.14" y2="116" class="grid-line" />
+        <line x1="454.29" y1="10" x2="454.29" y2="116" class="grid-line" />
+        <line x1="591.43" y1="10" x2="591.43" y2="116" class="grid-line" />
+        <text x="180" y="134" class="axis-label" text-anchor="middle">RM0</text>
+        <text x="317.14" y="134" class="axis-label" text-anchor="middle">RM10</text>
+        <text x="454.29" y="134" class="axis-label" text-anchor="middle">RM20</text>
+        <text x="591.43" y="134" class="axis-label" text-anchor="middle">RM30</text>
+
+        <!-- MyScore Report — typically below RM20 -->
+        <g class="bar-group" tabindex="0" data-campaign="MyScore Report" data-value="Below RM20" data-context="Typical CPA on ongoing Grab &amp; Meta placements">
+          <rect x="170" y="14" width="490" height="34" fill="transparent" />
+          <text x="170" y="31" class="cat-label" text-anchor="end" dominant-baseline="middle">MyScore Report</text>
+          <path d="M180,20 L450.29,20 Q454.29,20 454.29,24 L454.29,38 Q454.29,42 450.29,42 L180,42 Z" class="bar" />
+          <text x="464.29" y="31" class="val-label" dominant-baseline="middle">Below RM20</text>
+        </g>
+
+        <!-- Credit Pro — RM30 -->
+        <g class="bar-group" tabindex="0" data-campaign="Credit Pro" data-value="RM30.00" data-context="Typical CPA on ongoing Grab &amp; Meta placements">
+          <rect x="170" y="78" width="490" height="34" fill="transparent" />
+          <text x="170" y="95" class="cat-label" text-anchor="end" dominant-baseline="middle">Credit Pro</text>
+          <path d="M180,84 L587.43,84 Q591.43,84 591.43,88 L591.43,102 Q591.43,106 587.43,106 L180,106 Z" class="bar" />
+          <text x="601.43" y="95" class="val-label" dominant-baseline="middle">RM30.00</text>
+        </g>
+      </svg>
+      <div id="chartTooltip2" class="chart-tooltip" role="status" aria-live="polite"></div>
+
+      <table class="chart-table">
+        <caption>Cost per acquisition by product</caption>
+        <thead><tr><th scope="col">Product</th><th scope="col">Cost Per Acquisition</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">MyScore Report</th><td>Below RM20</td></tr>
+          <tr><th scope="row">Credit Pro</th><td>RM30.00</td></tr>
         </tbody>
       </table>
     </div>
@@ -445,11 +493,11 @@
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }}), {threshold: 0.06});
     document.querySelectorAll('.cs').forEach(c => obs.observe(c));
 
-    // CPL chart — hover/focus tooltip on each bar
-    (function () {
-      const tooltip = document.getElementById('chartTooltip');
+    // Performance charts — hover/focus tooltip on each bar
+    function wireChartTooltip(chartSelector, tooltipId) {
+      const tooltip = document.getElementById(tooltipId);
       if (!tooltip) return;
-      document.querySelectorAll('.cpl-chart .bar-group').forEach(g => {
+      document.querySelectorAll(chartSelector + ' .bar-group').forEach(g => {
         const campaign = g.dataset.campaign;
         const value = g.dataset.value;
         const context = g.dataset.context;
@@ -468,7 +516,9 @@
         g.addEventListener('focus', show);
         g.addEventListener('blur', hide);
       });
-    })();
+    }
+    wireChartTooltip('.cpl-chart', 'chartTooltip');
+    wireChartTooltip('.cpa-chart', 'chartTooltip2');
 
     // Before/after slider — draggable, with an auto-sweep demo on first view
     (function () {
