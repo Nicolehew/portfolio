@@ -62,6 +62,9 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
   .cpl-chart { min-width:560px; }
 }
 
+.perf-stats { max-width:640px; margin:0 auto; flex-direction:row; flex-wrap:wrap; justify-content:center; }
+.perf-stats .rchip { flex:1; min-width:220px; text-align:center; }
+
 .insight-report { max-width:900px; margin:3rem auto 0; }
 .insight-report .eyebrow { color:var(--tan); }
 .insight-report h4 { font-family:'Playfair Display',serif; font-weight:500; font-size:1.35rem; color:var(--ink); margin:.4rem 0 1.1rem; }
@@ -94,6 +97,9 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 .cs-gallery.ads img { aspect-ratio:2/3; object-fit:contain; background:#f4efe6; }
 .cs-gallery figure:hover img { transform:translateY(-4px); box-shadow:0 20px 44px rgba(36,27,19,.2); }
 .cs-gallery figcaption { font-size:.7rem; color:var(--muted); text-align:center; margin-top:.6rem; letter-spacing:.02em; }
+.collab-links { display:flex; justify-content:center; gap:1rem; }
+.collab-links a { color:var(--brown); font-weight:600; text-decoration:none; border-bottom:1px solid var(--tan); padding-bottom:.1rem; }
+.collab-links a:hover { color:var(--tan); }
 
 /* before/after slider */
 .ba-slider {
