@@ -6,7 +6,7 @@
   <title>Projects & Case Studies — Nicole Hew</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="projects.css?v=19" />
+  <link rel="stylesheet" href="projects.css?v=20" />
 </head>
 <body>
 
@@ -42,19 +42,28 @@
       <p><b>Created for:</b> Credit Bureau Malaysia, powered by Sunway Fintech.</p>
       <p><b>Products:</b> <b>MyScore Report</b> (credit report) and <b>Credit Pro</b> (B2B business credit-risk check).</p>
 
-      <div class="cs-gallery cols-3 ads">
-        <figure>
-          <img src="img/ad-madwithmoney.jpg" alt="madwithmoney × Credit Bureau Malaysia influencer collab ad — MyScore RM13 with promo code CBMMAD5" loading="lazy" />
-          <figcaption class="collab-links">
-            <a href="https://www.instagram.com/reel/Db5hLTIgoJ-/" target="_blank" rel="noopener">See the collab ↗</a>
-            <a href="https://www.instagram.com/reel/DVFg_DxjptF/" target="_blank" rel="noopener">See the collab ↗</a>
-          </figcaption>
-        </figure>
+      <div class="cs-gallery cols-2 ads">
         <img src="img/ad-myscore.jpg" alt="MyScore Report ad — check your credit score for RM15 with promo code CBM15" loading="lazy" />
         <img src="img/ad-creditpro.jpg" alt="Credit Pro ad — RM300 new-user cash rebate for business credit risk checks" loading="lazy" />
       </div>
+    </div>
 
-      <p class="insight-note"><b>Key insight:</b> Running an influencer collab (madwithmoney) alongside always-on Meta ads let the same MyScore offer reach a warmer, trust-primed audience at a discounted RM13 — pushing blended CPA even lower without changing the core creative or landing page.</p>
+    <div class="kol-block">
+      <p class="eyebrow">Influencer / KOL Partnership</p>
+      <h4>madwithmoney × MyScore Collab</h4>
+      <div class="kol-content">
+        <img src="img/ad-madwithmoney.jpg" alt="madwithmoney × Credit Bureau Malaysia influencer collab ad — MyScore RM13 with promo code CBMMAD5" loading="lazy" />
+        <div class="kol-copy">
+          <p>Sourced and managed the collab with <b>madwithmoney</b>, a Malaysian personal finance content creator, to promote MyScore Report to a warmer, trust-primed audience. I briefed the creative direction, coordinated the exclusive <b>CBMMAD5</b> promo code, and tracked it as its own channel alongside always-on Meta ads.</p>
+          <div class="cs-results perf-stats kol-stats">
+            <div class="rchip"><b>RM13</b><span>MyScore price via collab code</span></div>
+          </div>
+          <div class="collab-links">
+            <a href="https://www.instagram.com/reel/Db5hLTIgoJ-/" target="_blank" rel="noopener">See the collab ↗</a>
+            <a href="https://www.instagram.com/reel/DVFg_DxjptF/" target="_blank" rel="noopener">See the collab ↗</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section-head" style="margin-top:3.5rem;">
@@ -550,7 +559,7 @@
 
     // Lightbox — click any project image to expand to full view
     (function () {
-      const imgs = document.querySelectorAll('.cs-gallery img');
+      const imgs = document.querySelectorAll('.cs-gallery img, .kol-content img');
       if (!imgs.length) return;
       const lb = document.createElement('div');
       lb.id = 'lightbox';
