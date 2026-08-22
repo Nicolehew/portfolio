@@ -6,7 +6,7 @@
   <title>Projects & Case Studies — Nicole Hew</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="projects.css?v=14" />
+  <link rel="stylesheet" href="projects.css?v=16" />
 </head>
 <body>
 
@@ -20,6 +20,65 @@
     <p class="eyebrow">Portfolio</p>
     <h1>Campaigns &amp;<br/>Case Studies</h1>
     <p class="sub">Real Facebook &amp; Meta ad campaigns I've led — the strategy, the creatives, and the numbers behind each one.</p>
+  </section>
+
+  <!-- PERFORMANCE OVERVIEW -->
+  <section class="perf-wrap">
+    <div class="section-head">
+      <p class="eyebrow">By The Numbers</p>
+      <h3>Cost Per Lead by Campaign</h3>
+      <p class="section-sub">Real lead-generation results across three Facebook Ads campaigns I ran end-to-end. Lower is better.</p>
+    </div>
+
+    <div class="chart-card">
+      <svg class="cpl-chart" viewBox="0 0 700 230" role="img" aria-labelledby="cplTitle cplDesc">
+        <title id="cplTitle">Cost per lead by campaign, in Malaysian ringgit</title>
+        <desc id="cplDesc">Wong Chui Ling Masterclass: RM13.00. Golden Destination Travel Fairs: RM3.00. Zenland Wellness: RM1.68.</desc>
+
+        <!-- gridlines -->
+        <line x1="180" y1="10" x2="180" y2="182" class="grid-line" />
+        <line x1="351.43" y1="10" x2="351.43" y2="182" class="grid-line" />
+        <line x1="522.86" y1="10" x2="522.86" y2="182" class="grid-line" />
+        <text x="180" y="200" class="axis-label" text-anchor="middle">RM0</text>
+        <text x="351.43" y="200" class="axis-label" text-anchor="middle">RM5</text>
+        <text x="522.86" y="200" class="axis-label" text-anchor="middle">RM10</text>
+
+        <!-- Wong Chui Ling — RM13.00 -->
+        <g class="bar-group" tabindex="0" data-campaign="Wong Chui Ling Masterclass" data-value="RM13.00" data-context="2,000+ sign-ups in 10 days">
+          <rect x="170" y="14" width="490" height="34" fill="transparent" />
+          <text x="170" y="31" class="cat-label" text-anchor="end" dominant-baseline="middle">Wong Chui Ling</text>
+          <path d="M180,20 L621.714,20 Q625.714,20 625.714,24 L625.714,38 Q625.714,42 621.714,42 L180,42 Z" class="bar" />
+          <text x="635.714" y="31" class="val-label" dominant-baseline="middle">RM13.00</text>
+        </g>
+
+        <!-- Golden Destination — RM3.00 -->
+        <g class="bar-group" tabindex="0" data-campaign="Golden Destination Travel Fairs" data-value="RM3.00" data-context="600–1,000 leads per campaign">
+          <rect x="170" y="78" width="490" height="34" fill="transparent" />
+          <text x="170" y="95" class="cat-label" text-anchor="end" dominant-baseline="middle">Golden Destination</text>
+          <path d="M180,84 L278.857,84 Q282.857,84 282.857,88 L282.857,102 Q282.857,106 278.857,106 L180,106 Z" class="bar" />
+          <text x="292.857" y="95" class="val-label" dominant-baseline="middle">RM3.00</text>
+        </g>
+
+        <!-- Zenland Wellness — RM1.68 -->
+        <g class="bar-group" tabindex="0" data-campaign="Zenland Wellness" data-value="RM1.68" data-context="168,998 people reached">
+          <rect x="170" y="142" width="490" height="34" fill="transparent" />
+          <text x="170" y="159" class="cat-label" text-anchor="end" dominant-baseline="middle">Zenland Wellness</text>
+          <path d="M180,148 L233.6,148 Q237.6,148 237.6,152 L237.6,166 Q237.6,170 233.6,170 L180,170 Z" class="bar" />
+          <text x="247.6" y="159" class="val-label" dominant-baseline="middle">RM1.68</text>
+        </g>
+      </svg>
+      <div id="chartTooltip" class="chart-tooltip" role="status" aria-live="polite"></div>
+
+      <table class="chart-table">
+        <caption>Cost per lead by campaign</caption>
+        <thead><tr><th scope="col">Campaign</th><th scope="col">Cost Per Lead</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Wong Chui Ling Masterclass</th><td>RM13.00</td></tr>
+          <tr><th scope="row">Golden Destination Travel Fairs</th><td>RM3.00</td></tr>
+          <tr><th scope="row">Zenland Wellness</th><td>RM1.68</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <!-- FEATURED CAMPAIGNS -->
@@ -385,6 +444,31 @@
   <script>
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }}), {threshold: 0.06});
     document.querySelectorAll('.cs').forEach(c => obs.observe(c));
+
+    // CPL chart — hover/focus tooltip on each bar
+    (function () {
+      const tooltip = document.getElementById('chartTooltip');
+      if (!tooltip) return;
+      document.querySelectorAll('.cpl-chart .bar-group').forEach(g => {
+        const campaign = g.dataset.campaign;
+        const value = g.dataset.value;
+        const context = g.dataset.context;
+        function show() {
+          tooltip.textContent = '';
+          const strong = document.createElement('b');
+          strong.textContent = value + ' ';
+          const rest = document.createTextNode(`— ${campaign} · ${context}`);
+          tooltip.appendChild(strong);
+          tooltip.appendChild(rest);
+          tooltip.classList.add('show');
+        }
+        function hide() { tooltip.classList.remove('show'); }
+        g.addEventListener('pointerenter', show);
+        g.addEventListener('pointerleave', hide);
+        g.addEventListener('focus', show);
+        g.addEventListener('blur', hide);
+      });
+    })();
 
     // Before/after slider — draggable, with an auto-sweep demo on first view
     (function () {

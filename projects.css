@@ -23,6 +23,45 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
 .proj-hero h1 { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(2.8rem,6vw,4.8rem); color:var(--cream); line-height:1.02; margin-bottom:1.25rem; letter-spacing:-0.01em; }
 .proj-hero .sub { font-size:.98rem; color:rgba(243,235,223,.65); max-width:520px; margin:0 auto; line-height:1.75; }
 
+/* PERFORMANCE OVERVIEW */
+.perf-wrap { max-width:1120px; margin:0 auto; padding:4.5rem 2rem 0; }
+.perf-wrap .section-head { text-align:center; margin-bottom:2.25rem; }
+.perf-wrap .eyebrow { color:var(--tan); }
+.perf-wrap .section-head h3 { font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(1.8rem,3.6vw,2.6rem); color:var(--ink); margin-bottom:.6rem; }
+.perf-wrap .section-sub { font-size:.88rem; color:var(--muted); max-width:460px; margin:0 auto; line-height:1.7; }
+
+.chart-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:2rem 2rem 1.5rem; box-shadow:0 14px 34px rgba(36,27,19,.08); }
+.cpl-chart { width:100%; height:auto; display:block; overflow:visible; }
+.grid-line { stroke:var(--line); stroke-width:1; }
+.axis-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--muted); }
+.cat-label { font-family:'Inter',sans-serif; font-size:13px; font-weight:600; fill:var(--ink); }
+.val-label { font-family:'Inter',sans-serif; font-size:13px; font-weight:700; fill:var(--brown); }
+.bar { fill:var(--brown); transition:fill .2s; }
+.bar-group { cursor:pointer; outline:none; }
+.bar-group:hover .bar, .bar-group:focus-visible .bar { fill:var(--tan); }
+.bar-group:focus-visible rect { outline:2px solid var(--tan); outline-offset:2px; }
+
+.chart-tooltip {
+  position:relative; max-height:0; margin-top:0; padding:0 .9rem;
+  background:var(--espresso); color:var(--cream); border-radius:8px; overflow:hidden;
+  font-size:.78rem; line-height:1.5; opacity:0;
+  transition:opacity .15s, max-height .15s, margin-top .15s, padding .15s; pointer-events:none;
+}
+.chart-tooltip.show { opacity:1; max-height:4em; margin-top:.75rem; padding:.6rem .9rem; }
+.chart-tooltip b { color:var(--tan-soft); }
+
+.chart-table { width:100%; margin-top:1.5rem; border-collapse:collapse; font-size:.82rem; }
+.chart-table caption { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+.chart-table th, .chart-table td { text-align:left; padding:.55rem .5rem; border-top:1px solid var(--line); }
+.chart-table thead th { color:var(--muted); font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; border-top:none; }
+.chart-table td { text-align:right; font-weight:600; color:var(--brown); }
+.chart-table tbody th { font-weight:500; color:var(--ink); }
+
+@media (max-width:700px) {
+  .chart-card { padding:1.5rem 1rem 1.25rem; overflow-x:auto; }
+  .cpl-chart { min-width:560px; }
+}
+
 /* CASE STUDIES */
 .projects-grid { max-width:1120px; margin:0 auto; padding:4.5rem 2rem 2rem; }
 .cs { padding:3rem 0 3.5rem; border-bottom:1px solid var(--line);
