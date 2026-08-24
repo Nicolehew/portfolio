@@ -99,6 +99,90 @@ nav .logo { color:var(--tan-soft); text-decoration:none; font-size:.8rem; font-w
   .kol-content img { max-width:260px; margin:0 auto; }
 }
 
+/* AI-POWERED CREATIVE & CONTENT */
+.serif-lg { font-family:'Playfair Display',serif; font-weight:500; line-height:1.05; letter-spacing:-0.01em; }
+.light { color: var(--cream); }
+.eyebrow.light { color: var(--tan-soft); }
+
+.ailab { background: var(--brown); padding: 7rem 5.5rem; }
+.ailab-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+.ailab-head h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-bottom: 1.25rem; }
+.ailab-sub { font-size: 0.92rem; line-height: 1.85; color: rgba(243,235,223,0.72); }
+.ailab-sub b { color: var(--cream); font-weight: 600; }
+
+.ailab-posts { max-width: 1000px; margin: 0 auto 4rem; display: flex; flex-direction: column; gap: 2rem; }
+.ailab-post { display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: center; background: rgba(243,235,223,0.05); border: 1px solid rgba(243,235,223,0.1); border-radius: 14px; padding: 1.75rem; }
+.ailab-post.feature { grid-template-columns: 1fr; }
+.ailab-post.feature .ailab-post-media.wide { max-width: 560px; margin: 0 auto; width: 100%; }
+.ailab-post.reverse { grid-template-columns: 1fr 280px; }
+.ailab-post.reverse .ailab-post-media { order: 2; }
+.ailab-post-media { position: relative; width: 100%; min-width: 0; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 16px 38px rgba(0,0,0,0.32); aspect-ratio: 4/5; }
+.ailab-post-media.is-video { aspect-ratio: 9/16; }
+.ailab-post-media.wide { aspect-ratio: 2/1; }
+.ailab-post-media img, .ailab-post-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ailab-proof-gallery { display: grid; grid-template-columns: 1fr 1.55fr; gap: 1.25rem; max-width: 780px; margin: 0 auto 2rem; align-items: stretch; }
+.ailab-post-media.tall { aspect-ratio: 9/17; }
+.ailab-post-media.tall .ailab-badge { background: #1db954; color: #fff; }
+.ailab-post-media.wide2 { aspect-ratio: 4/3; width: 100%; min-width: 0; }
+@media (max-width: 900px) {
+  .ailab-proof-gallery { grid-template-columns: 1fr; max-width: 320px; }
+}
+.ailab-post-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tan-soft); margin-bottom: 0.6rem; }
+.ailab-post-copy h3 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.55rem; color: var(--cream); margin-bottom: 0.9rem; line-height: 1.15; }
+.ailab-post-text { font-size: 0.86rem; line-height: 1.8; color: rgba(243,235,223,0.72); margin-bottom: 1rem; }
+.ailab-post-meta { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tan); }
+
+.ailab-showcase { position: relative; max-width: 1140px; margin: 0 auto; padding: 3rem 2rem 2.5rem; border-radius: 26px; }
+.ailab-showcase::before {
+  content: ''; position: absolute; inset: 0; border-radius: 26px; padding: 1.5px;
+  background: linear-gradient(120deg, rgba(201,173,142,0.05), rgba(230,199,150,0.85), rgba(201,173,142,0.05), rgba(230,199,150,0.55), rgba(201,173,142,0.05));
+  background-size: 300% 300%;
+  animation: ai-shimmer 7s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+@keyframes ai-shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.ailab-galtitle { text-align: center; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tan-soft); margin-bottom: 1.5rem; }
+.ailab-galtitle span { position: relative; padding: 0 1.6em; }
+.ailab-galtitle span::before, .ailab-galtitle span::after { content: '✦'; position: absolute; top: 50%; transform: translateY(-50%); color: var(--tan); font-size: 0.9em; }
+.ailab-galtitle span::before { left: 0; }
+.ailab-galtitle span::after { right: 0; }
+.ailab-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+.ailab-gallery.two { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
+.ailab-gallery.four { grid-template-columns: repeat(4, 1fr); max-width: 1000px; }
+.ailab-gallery.five { grid-template-columns: repeat(5, 1fr); max-width: 1080px; }
+.ailab-item { margin: 0; }
+.ailab-media { position: relative; aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; box-shadow: 0 18px 44px rgba(0,0,0,0.28); background: #000; transition: box-shadow 0.3s, transform 0.3s; }
+.ailab-media.is-video { aspect-ratio: 9/16; }
+.ailab-media img, .ailab-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ailab-item:hover .ailab-media { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(230,199,150,0.5), 0 0 26px rgba(230,199,150,0.45); }
+.ailab-badge { position: absolute; top: 0.75rem; left: 0.75rem; background: var(--tan); color: var(--espresso); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 100px; }
+.ailab-ai-badge {
+  position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; color: #2a2018;
+  background: linear-gradient(120deg, #f3ebdf, #e6c796, #f3ebdf);
+  background-size: 220% 220%; animation: ai-shimmer 4s ease infinite;
+  padding: 0.28rem 0.55rem; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.ailab-item figcaption { text-align: center; margin-top: 0.75rem; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--tan-soft); }
+.ailab-gallery img, .ailab-post-media img { cursor: zoom-in; }
+
+@media (max-width: 900px) {
+  .ailab { padding: 4.5rem 1.75rem; }
+  .ailab-showcase { padding: 2.25rem 1.1rem 1.75rem; }
+  .ailab-gallery { grid-template-columns: 1fr; gap: 2rem; max-width: 380px; }
+  .ailab-gallery.two { grid-template-columns: 1fr; max-width: 380px; }
+  .ailab-gallery.four { grid-template-columns: repeat(2, 1fr); max-width: 420px; }
+  .ailab-gallery.five { grid-template-columns: repeat(2, 1fr); max-width: 420px; }
+  .ailab-post, .ailab-post.reverse { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ailab-post.reverse .ailab-post-media { order: 0; }
+  .ailab-post-media, .ailab-post-media.is-video { max-width: 260px; margin: 0 auto; width: 100%; }
+}
+@media (max-width: 560px) {
+  .ailab-post-copy h3 { font-size: 1.25rem; }
+}
+
 /* CASE STUDIES */
 .projects-grid { max-width:1120px; margin:0 auto; padding:4.5rem 2rem 2rem; }
 .cs { padding:3rem 0 3.5rem; border-bottom:1px solid var(--line);
